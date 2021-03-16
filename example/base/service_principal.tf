@@ -1,7 +1,6 @@
 module "service_principal" {
     source = "./../../../_modules/azure/service_principal/service_principal"
 
-    email                                   = var.email
     teamid                                  = var.teamid
     prjid                                   = var.prjid
 

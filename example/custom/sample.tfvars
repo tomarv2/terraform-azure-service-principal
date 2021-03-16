@@ -1,4 +1,4 @@
-email                               = "demo@demo.com"
+
 //rg_name                             = "demo_rg"
 #
 # NOTE: if you get an issue something like: `IndexError: list index out of range`
