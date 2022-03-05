@@ -5,10 +5,9 @@
 # issue is most likely with the list pass, space or next line
 # to test put all elements of list in oneline
 #
-role                                = "Reader"
-scopes                              = ["/subscriptions/12345-12345-12345-12345-12345"]
+role   = "Reader"
+scopes = ["/subscriptions/12345-12345-12345-12345-12345"]
 #-------------------------------------------------------------------
 # Note: Do not change teamid and prjid once set.
-teamid                              = "rumse"
-prjid                               = "demo-service-principal"
-
+teamid = "rumse"
+prjid  = "demo-service-principal"
