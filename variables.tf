@@ -1,17 +1,11 @@
 variable "teamid" {
   description = "Name of the team/group e.g. devops, dataengineering. Should not be changed after running 'tf apply'"
+  type        = string
 }
 
 variable "prjid" {
   description = "Name of the project/stack e.g: mystack, nifieks, demoaci. Should not be changed after running 'tf apply'"
-}
-
-
-
-variable "service_principal_name" {
   type        = string
-  description = "The name of the service principal."
-  default     = ""
 }
 
 variable "password" {
@@ -28,7 +22,7 @@ variable "end_date" {
 
 variable "years" {
   type        = number
-  default     = 10 #null
+  default     = 10 # null
   description = "The number of years after which the password expire. Either this or `end_date` should be specified, but not both."
 }
 
