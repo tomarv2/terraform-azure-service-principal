@@ -18,7 +18,7 @@
 ### Versions
 
 - Module tested for Terraform 1.0.1.
-- Azure provider version [2.98](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
+- Azure provider version [3.21.1](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
 - `main` branch: Provider versions not pinned to keep up with Terraform releases
 - `tags` releases: Tags are pinned with versions (use latest tag in your releases)
 
@@ -77,22 +77,11 @@ Please refer to examples directory [link](examples) for references.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.1 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | 2.18.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 2.98 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.1.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | 0.7.2 |
+No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.18.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 2.98 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.7.2 |
+No providers.
 
 ## Modules
 
@@ -100,36 +89,13 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azuread_application.main](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/resources/application) | resource |
-| [azuread_service_principal.main](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/resources/service_principal) | resource |
-| [azuread_service_principal_password.main](https://registry.terraform.io/providers/hashicorp/azuread/2.18.0/docs/resources/service_principal_password) | resource |
-| [azurerm_role_assignment.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [random_password.main](https://registry.terraform.io/providers/hashicorp/random/3.1.0/docs/resources/password) | resource |
-| [time_rotating.main](https://registry.terraform.io/providers/hashicorp/time/0.7.2/docs/resources/rotating) | resource |
-| [azurerm_subscription.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_end_date"></a> [end\_date](#input\_end\_date) | The relative duration or RFC3339 date after which the password expire. | `string` | `null` | no |
-| <a name="input_password"></a> [password](#input\_password) | A password for the service principal. | `string` | `""` | no |
-| <a name="input_prjid"></a> [prjid](#input\_prjid) | Name of the project/stack e.g: mystack, nifieks, demoaci. Should not be changed after running 'tf apply' | `string` | n/a | yes |
-| <a name="input_role"></a> [role](#input\_role) | The name of a role for the service principal. | `string` | `""` | no |
-| <a name="input_scopes"></a> [scopes](#input\_scopes) | A list of scopes the role assignment applies to. | `list(string)` | `[]` | no |
-| <a name="input_teamid"></a> [teamid](#input\_teamid) | Name of the team/group e.g. devops, dataengineering. Should not be changed after running 'tf apply' | `string` | n/a | yes |
-| <a name="input_years"></a> [years](#input\_years) | The number of years after which the password expire. Either this or `end_date` should be specified, but not both. | `number` | `10` | no |
+No inputs.
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_application_id"></a> [application\_id](#output\_application\_id) | The client (application) ID of the service principal. |
-| <a name="output_client_id"></a> [client\_id](#output\_client\_id) | Echoes the `application_id` output value, for convenience if passing the result of this module elsewhere as an object. |
-| <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | Echoes the `password` output value, for convenience if passing the result of this module elsewhere as an object. |
-| <a name="output_name"></a> [name](#output\_name) | The display name of the Azure AD application. |
-| <a name="output_object_id"></a> [object\_id](#output\_object\_id) | The Object ID of the service principal. |
-| <a name="output_password"></a> [password](#output\_password) | The password for the service principal. |
+No outputs.
 <!-- END_TF_DOCS -->
