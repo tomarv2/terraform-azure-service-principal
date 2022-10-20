@@ -1,53 +1,30 @@
-data "azurerm_subscription" "main" {}
+resource "azuread_application" "this" {
+  for_each          = var.applications_config != null ? var.applications_config : {}
 
-locals {
-  scopes = length(var.scopes) > 0 ? var.scopes : [data.azurerm_subscription.main.id]
+  display_name      = each.key
+  identifier_uris   = try(each.value.identifier_uris, null)
+  sign_in_audience = each.value.sign_in_audience
+  owners = each.value.owners
 }
 
-resource "azuread_application" "main" {
-  name                       = "${var.teamid}-${var.prjid}"
-  identifier_uris            = [format("http://%s", "${var.teamid}-${var.prjid}")]
-  available_to_other_tenants = false
-}
+#resource "azuread_service_principal" "this" {
+#  for_each          = {for k,v in azuread_application.this : k => v}
+#
+#  app_role_assignment_required = false
+#  application_id = each.value.application_id
+#  owners  = each.value.owners
+#
+#}
+#
+#resource "azuread_service_principal_password" "this" {
+#  for_each          = {for k,v in azuread_service_principal.this : k => v}
+#
+#  service_principal_id = each.value.id
+#}
 
-resource "azuread_service_principal" "main" {
-  application_id = azuread_application.main.application_id
-}
+# Manages a password credential associated with an application within Azure Active Directory. These are also referred to as client secrets during authentication.
+resource "azuread_application_password" "this" {
+  for_each          = {for k,v in azuread_application.this : k => v}
 
-# TODO: currently not getting used(more as a place holder)
-resource "time_rotating" "main" {
-  rotation_rfc3339 = var.end_date
-  rotation_years   = var.years
-
-  triggers = {
-    end_date = var.end_date
-    years    = var.years
-  }
-}
-
-resource "random_password" "main" {
-  count  = var.password == "" ? 1 : 0
-  length = 32
-
-  keepers = {
-    rfc3339 = time_rotating.main.id
-  }
-}
-
-resource "azuread_service_principal_password" "main" {
-  count                = var.password != null ? 1 : 0
-  service_principal_id = data.azurerm_subscription.main.id
-  value                = coalesce(var.password, random_password.main[0].result)
-  end_date             = time_rotating.main.rotation_rfc3339
-}
-
-resource "azurerm_role_assignment" "main" {
-  count = var.role != "" ? length(local.scopes) : 0
-
-  scope = local.scopes[count.index]
-  /*
-  role_definition_name      = "Reader"
-  role_definition_id    = format("%s%s", var.subscription_id, data.azurerm_role_definition.main[0].id)
-  */
-  principal_id = azuread_service_principal.main.id
+  application_object_id = each.value.object_id
 }

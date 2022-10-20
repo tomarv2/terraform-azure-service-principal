@@ -10,12 +10,17 @@ terraform {
 provider "azurerm" {
   features {}
 }
-module "service_principal" {
-  source = "./../../"
 
+data "azuread_client_config" "current" {}
+module "service_principal" {
+  source = "./../"
+
+  applications_config = {
+    "app1" = {
+      owners           = [data.azuread_client_config.current.object_id]
+      sign_in_audience = "AzureADMyOrg"
+    }
+  }
   teamid = var.teamid
   prjid  = var.prjid
-
-  role   = var.role
-  scopes = var.scopes
 }
