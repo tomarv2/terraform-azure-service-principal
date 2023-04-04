@@ -9,8 +9,8 @@
         <img src="https://img.shields.io/github/commit-activity/m/tomarv2/terraform-azure-service-principal" /></a>
     <a href="https://stackoverflow.com/users/6679867/tomarv2" alt="Stack Exchange reputation">
         <img src="https://img.shields.io/stackexchange/stackoverflow/r/6679867"></a>
-    <a href="https://twitter.com/intent/follow?screen_name=varuntomar2019" alt="follow on Twitter">
-        <img src="https://img.shields.io/twitter/follow/varuntomar2019?style=social&logo=twitter"></a>
+    <a href="https://twitter.com/intent/follow?screen_name=tomar_v2" alt="follow on Twitter">
+        <img src="https://img.shields.io/twitter/follow/tomar_v2?style=social&logo=twitter"></a>
 </p>
 
 ## Terraform module for Azure Service Principal
@@ -77,19 +77,11 @@ Please refer to examples directory [link](examples) for references.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.1 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | 2.29.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.21.1 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.1.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | 0.7.2 |
+No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.29.0 |
+No providers.
 
 ## Modules
 
@@ -97,26 +89,13 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azuread_application.this](https://registry.terraform.io/providers/hashicorp/azuread/2.29.0/docs/resources/application) | resource |
-| [azuread_application_password.this](https://registry.terraform.io/providers/hashicorp/azuread/2.29.0/docs/resources/application_password) | resource |
+No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_applications_config"></a> [applications\_config](#input\_applications\_config) | Application configuration | `map(any)` | n/a | yes |
-| <a name="input_extra_tags"></a> [extra\_tags](#input\_extra\_tags) | Additional tags to associate | `map(string)` | `{}` | no |
-| <a name="input_password"></a> [password](#input\_password) | A password for the service principal. | `string` | `""` | no |
-| <a name="input_prjid"></a> [prjid](#input\_prjid) | Name of the project/stack e.g: mystack, nifieks, demoaci. Should not be changed after running 'tf apply' | `string` | n/a | yes |
-| <a name="input_teamid"></a> [teamid](#input\_teamid) | Name of the team/group e.g. devops, dataengineering. Should not be changed after running 'tf apply' | `string` | n/a | yes |
+No inputs.
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_application_id"></a> [application\_id](#output\_application\_id) | The client (application) ID. |
-| <a name="output_client_password"></a> [client\_password](#output\_client\_password) | A UUID used to uniquely identify this password credential. |
-| <a name="output_client_secret"></a> [client\_secret](#output\_client\_secret) | The password for the Service Principal. |
+No outputs.
 <!-- END_TF_DOCS -->
